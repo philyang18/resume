@@ -9,7 +9,9 @@ export default class ProjectPage extends React.Component {
     this.state = {
       title: "",
       description: "",
-      technologies: []
+      technologies: [],
+      src: "",
+      github: ""
     };
     this.detailsRef = React.createRef();
   }
@@ -22,16 +24,16 @@ export default class ProjectPage extends React.Component {
      
     }
   }
-  showDetails = async (title, description, technologies) => {
-    this.setState({title, description, technologies});
+  showDetails = async (title, description, technologies, src, github) => {
+    this.setState({title, description, technologies, src, github});
     console.log(technologies);
   }
   hideDetails = () => {
-    this.setState({title: "", description: "", technologies: []});
+    this.setState({title: "", description: "", technologies: [], src: "", github: ""});
   }
   render() {
     return (
-      <div id="projects-container" className={this.state.title.length === 0 ? "" : "top-50"}>
+      <div id="projects-page" className={this.state.title.length === 0 ? "" : "top-50"}>
         <div className="container">
           <h1>Projects</h1>
           <div className="row">
@@ -41,8 +43,10 @@ export default class ProjectPage extends React.Component {
                 <Project 
                   title="Memeversity" 
                   imageSrc="./images/meme.png" 
-                  description="bye"
+                  description="This is a web application that provides the latest meme formats using the Meme Generator API."
                   technologies={["HTML", "CSS", "JavaScript", "PHP"]}
+                  src="https://google.com"
+                  github="https://github.com"
                   onClick={this.showDetails}
                 />
               </Zoom>
@@ -50,87 +54,48 @@ export default class ProjectPage extends React.Component {
             <div className="project col-lg-3 col-md-6 col-sm-12">
               <Zoom>
                 <Project 
-                  title="Memeversity" 
-                  imageSrc="./images/meme.png" 
-                  description="bye"
-                  technologies={["HTML", "CSS", "JavaScript", "PHP"]}
+                  title="NASA Images" 
+                  imageSrc="./images/nasa.jpg" 
+                  description="This is a web application that displays images from NASA's photo of the day and Mars rover APIs. Users can view the last 7 photos of the day and search through all photos taken from the Curiosity Rover. There is also a 'like' feature similar to Instagram where users can double tap an image to save it, however the data is only temporarily saved on the client-side using Express so any changes to the favorites list will affect all users. Some optimizations and improvements that have yet to be implemented: a server-side database and login system so users can have a private and permanent favorites list."
+                  technologies={["HTML", "CSS", "React", "Bootstrap", "Express"]}
+                  src="https://google.com"
+                  github="https://github.com"
                   onClick={this.showDetails}
                 />
               </Zoom>
             </div>
-            
-            
-            <Zoom>
-              <div className="project col-lg-3 col-md-6 col-sm-12">
+            {/* <div className="project col-lg-3 col-md-6 col-sm-12">
+              <Zoom>
                 <Project 
-                  title="NASA Images" 
-                  imageSrc="./images/nasa.jpg" 
-                  description="This is a web application deployed through Heroku that displays images of space from NASA's photo of the day and Mars rover APIs. Users can view the last 7 photos of the day and search through all photos taken from the Curiosity Rover. There is also a 'like' feature similar to Instagram where users can double tap an image to save it, however the data is only temporarily saved on the client side using Express  and is a 'public' list of favorites so any changes will be reflected to all users. Some optimizations improvements that have yet to be implemented: using a real database and creating a login so users have their own favorite list. to save favorithat need to be implemented all favorites are temporarily saved on the client side using Express. "
-                  technologies={["HTML", "CSS", "React", "BootStrap", "Express"]}
+                  title="" 
+                  imageSrc="." 
+                  description=""
+                  technologies={["", "", "", "", "",""]}
+                  src="https://google.com"
+                  github="https://github.com"
                   onClick={this.showDetails}
                 />
-              </div>
-            </Zoom>
-            <Zoom>
-              <div className="project col-lg-3 col-md-6 col-sm-12">
-                <Project 
-                  title="NASA Images" 
-                  imageSrc="./images/nasa.jpg" 
-                  description="This is a web application deployed through Heroku that displays images of space from NASA's photo of the day and Mars rover APIs. Users can view the last 7 photos of the day and search through all photos taken from the Curiosity Rover. There is also a 'like' feature similar to Instagram where users can double tap an image to save it, however the data is only temporarily saved on the client side using Express  and is a 'public' list of favorites so any changes will be reflected to all users. Some optimizations improvements that have yet to be implemented: using a real database and creating a login so users have their own favorite list. to save favorithat need to be implemented all favorites are temporarily saved on the client side using Express. "
-                  technologies={["HTML", "CSS", "React", "BootStrap", "Express"]}
-                  onClick={this.showDetails}
-                />
-              </div>
-            </Zoom>
-            <Zoom>
-              <div className="project col-lg-3 col-md-6 col-sm-12">
-                <Project 
-                  title="NASA Images" 
-                  imageSrc="./images/nasa.jpg" 
-                  description="This is a web application deployed through Heroku that displays images of space from NASA's photo of the day and Mars rover APIs. Users can view the last 7 photos of the day and search through all photos taken from the Curiosity Rover. There is also a 'like' feature similar to Instagram where users can double tap an image to save it, however the data is only temporarily saved on the client side using Express  and is a 'public' list of favorites so any changes will be reflected to all users. Some optimizations improvements that have yet to be implemented: using a real database and creating a login so users have their own favorite list. to save favorithat need to be implemented all favorites are temporarily saved on the client side using Express. "
-                  technologies={["HTML", "CSS", "React", "BootStrap", "Express"]}
-                  onClick={this.showDetails}
-                />
-              </div>
-            </Zoom>
-            <Zoom>
-              <div className="project col-lg-3 col-md-6 col-sm-12">
-                <Project 
-                  title="NASA Images" 
-                  imageSrc="./images/nasa.jpg" 
-                  description="This is a web application deployed through Heroku that displays images of space from NASA's photo of the day and Mars rover APIs. Users can view the last 7 photos of the day and search through all photos taken from the Curiosity Rover. There is also a 'like' feature similar to Instagram where users can double tap an image to save it, however the data is only temporarily saved on the client side using Express  and is a 'public' list of favorites so any changes will be reflected to all users. Some optimizations improvements that have yet to be implemented: using a real database and creating a login so users have their own favorite list. to save favorithat need to be implemented all favorites are temporarily saved on the client side using Express. "
-                  technologies={["HTML", "CSS", "React", "BootStrap", "Express"]}
-                  onClick={this.showDetails}
-                />
-              </div>
-            </Zoom>
-            <Zoom>
-              <div className="project col-lg-3 col-md-6 col-sm-12">
-                <Project 
-                  title="NASA Images" 
-                  imageSrc="./images/nasa.jpg" 
-                  description="This is a web application deployed through Heroku that displays images of space from NASA's photo of the day and Mars rover APIs. Users can view the last 7 photos of the day and search through all photos taken from the Curiosity Rover. There is also a 'like' feature similar to Instagram where users can double tap an image to save it, however the data is only temporarily saved on the client side using Express  and is a 'public' list of favorites so any changes will be reflected to all users. Some optimizations improvements that have yet to be implemented: using a real database and creating a login so users have their own favorite list. to save favorithat need to be implemented all favorites are temporarily saved on the client side using Express. "
-                  technologies={["HTML", "CSS", "React", "BootStrap", "Express"]}
-                  onClick={this.showDetails}
-                />
-              </div>
-            </Zoom>
+              </Zoom>
+            </div> */}
           </div>
-          <div className="project-details" >
+          <div id="project-details" >
             {this.state.title.length !== 0 ? 
               
                 <div id="details-row" ref={this.detailsRef} className="row">
                   <Fade>
-                    <div className="">
-                      <h2>{this.state.title} <i id="close-details-icon" className="icon-minus arrow-toggle" onClick={this.hideDetails}></i></h2> 
+                    <div>
+                      <h2 onClick={this.hideDetails}>{this.state.title} <i id="close-details-icon" className="icon-minus arrow-toggle"></i></h2> 
                       <p>{this.state.description}</p>
-                      
+                      <div>
+                        <a href={this.state.src} className="btn btn-default details-btn">Explore</a>
+                        <a href={this.state.github} className="btn btn-default details-btn">Code</a>
+                      </div>
                       {this.state.technologies.map(technology => {
                         return (
                           <a className="skill">{technology}</a>
                         );
-                        
                       })}
+                      
                     </div>
                   </Fade>
                 </div>  : <div/>

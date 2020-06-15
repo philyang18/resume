@@ -1,17 +1,5 @@
 import React from 'react';
 
-// export default function Project(props) {
-// 	const { title, imageSrc, description } = props;
-// 	const photo = require(`${imageSrc}`);
-
-// 	return (
-// 		<div className="project-container">
-//             <img src={photo}/>
-//             <p>{title}</p>
-//         </div>
-// 	);
-	
-// }
 export default class Project extends React.Component {
     constructor(props) {
         super(props);
@@ -19,14 +7,18 @@ export default class Project extends React.Component {
             title: props.title, 
             image: require(`${props.imageSrc}`),
             description: props.description,
-            technologies: props.technologies
+            technologies: props.technologies,
+            src: props.src,
+            github: props.github
         };
     }
     handleClick = () => {
         this.props.onClick(
             this.state.title, 
             this.state.description,
-            this.state.technologies
+            this.state.technologies,
+            this.state.src,
+            this.state.github
         );
     }
     render() {

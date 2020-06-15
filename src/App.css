@@ -129,7 +129,7 @@
   text-align: center;
   margin-top: 30px;
 }
-#motto {
+#my-school {
   text-align: center;
   margin-top: -10px;
 }
@@ -146,7 +146,7 @@
   width: 100%;
   justify-content: center;
 }
-.link-button {
+.link-btn {
   background-color: #2f5bdf;
   outline: black;
   box-shadow: none;
@@ -155,12 +155,12 @@
   margin: 0 1.25% 0 1.25%;
   color: white;
 }
-.link-button:hover {
+.link-btn:hover {
   color: white;
   background: rgb(55, 69, 133);
   text-decoration: none;
 }
-.link-button:focus {
+.link-btn:focus {
   color: white;
   text-decoration: none;
 }
@@ -173,9 +173,9 @@
 }
 .skill {
   margin: 0 5px 5px 0;
-  padding: 5px 10px 5px 10px;
-  border-radius: 10px;
-  background-color: #5b7feb;
+  padding: 5px 12.5px 5px 12.5px;
+  border-radius: 25px;
+  background-color: rgb(0, 46, 253);
   color: white !important;
   display: inline-block;
 }
@@ -194,18 +194,9 @@
   position: relative;
   padding-bottom: 50px;
 }
-.about-button {
-  margin: 0 15px 0 0;
-  padding: 5px 10px 5px 10px;
-  border-radius: 10px;
-  background-color: #2f5bdf;
-  outline: none;
-  box-shadow: none;
-  border: none;
-}
-.about-button:focus {
-  outline: none;
-  box-shadow: non;
+#course-notes {
+  font-style: italic;
+  left: 50px;
 }
 .top-100 {
   margin-top: 93px; /* best margin is 93 */
@@ -235,7 +226,7 @@
   #link-container {
     margin: auto;
   }
-  .link-button {
+  .link-btn {
     max-width: 30%;
     margin: 0 2.5% 10px 2.5%;
   }
@@ -249,19 +240,18 @@
 /* ===================== */
 /* ======== Projects ========= */
 
-#projects-container {
+#projects-page {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  max-height: max-content;
   background-color: rgb(3, 218, 247);
   color: black;
   font-family: 'Montserrat', sans-serif;
 }
-#projects-container h1 {
+#projects-page h1 {
   margin-bottom: 30px;
   text-align: center;
 }
@@ -289,10 +279,6 @@
   color: black;
 }
 
-#project-details {
-  position: absolute;
-  background-color: rgb(3, 218, 247);
-}
 #details-row {
   line-height: 1.75em;
   position: relative;
@@ -305,4 +291,40 @@
 
 #close-details-icon {
   font-size: 25px;
+}
+#project-details h2 {
+  cursor: pointer;
+}
+.details-btn {
+  background-color: green;
+  outline: black;
+  box-shadow: none;
+  border-radius: 5px;
+  color: white;
+  margin: 0 5px 10px 0;
+}
+
+.details-btn:hover {
+  color: white;
+  background: rgb(55, 69, 133);
+  text-decoration: none;
+}
+.details-btn:focus {
+  color: white;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 991px) { 
+  #projects-page {
+    padding: 50px 0 30px;
+  }
+
+  #project-details {
+    width: 90%;
+    margin: auto;
+  }
+
+  #project-details h2 {
+    padding-top: 30px;
+  }
 }
