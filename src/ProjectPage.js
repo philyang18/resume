@@ -19,7 +19,7 @@ export default class ProjectPage extends React.Component {
     if(this.detailsRef.current) {
       this.detailsRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "nearest"
+        block: "nearest",
       });
      
     }
@@ -87,8 +87,8 @@ export default class ProjectPage extends React.Component {
                       <h2 onClick={this.hideDetails}>{this.state.title} <i id="close-details-icon" className="icon-minus arrow-toggle"></i></h2> 
                       <p>{this.state.description}</p>
                       <div>
-                        <a href={this.state.src} className="btn btn-default details-btn">Explore</a>
-                        <a href={this.state.github} className="btn btn-default details-btn">Code</a>
+                        <a href={this.state.src} target="_blank" className="btn btn-default details-btn">Explore</a>
+                        <a href={this.state.github} target="_blank" className="btn btn-default details-btn">Code</a>
                       </div>
                       {this.state.technologies.map(technology => {
                         return (
