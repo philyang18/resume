@@ -7,10 +7,12 @@ export default function PageNotFound(props){
 		url = props.location.pathname;
 	}
 	return (
-		<div>
-			<h3 id="error">
-				"{url}" was not found.
+		<div id="error">
+			<h3>
+				"{url}" was not found. 
 			</h3>
+			{/* <a href="https://phillipyang.surge.sh">Take Me Home!</a> */}
+			<a href="/">Take Me Home!</a>
 		</div>
 
 	);

@@ -1,29 +1,64 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import Zoom from 'react-reveal/Zoom';
+import AboutPage from './AboutPage.js';
+import ProjectPage from './ProjectPage.js';
 
-export default function Home(props) {
-	const photo1 = require("./images/home.png");
-	const photo2 = require("./images/reverseHome.png");
-	return(
-		<div id="home-container">
-			<img id="top-bg" src={photo1} alt="top background"/>
-			<div id="home-content" className="container">
-				<h3>Hello</h3><h3>I'm Phil</h3>
-				<p>welcome to my web portfolio</p>
-				<div id="button-holder" className="row">
-					<NavLink to="/projects">
-						<button className="home-button col-lg-6 col-md-6 col-sm-12 home-links">
-							<p>Projects</p>
-						</button>
-					</NavLink>
-					<NavLink to="/about"> 
-						<button className="home-button col-lg-6 col-md-6 col-sm-12 home-links">
-							<p>About</p>
-						</button>
-					</NavLink>
+export default class Home extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.aboutRef = React.createRef();
+		this.projectsRef = React.createRef();
+	}
+
+	scrollToAbout = (event) => {
+        if(this.aboutRef.current){
+            this.aboutRef.current.scrollIntoView({ 
+               behavior: "smooth", 
+               block: "nearest"
+            });
+        }
+    }
+
+	scrollToProjects = (event) => {
+        if(this.projectsRef.current){
+            this.projectsRef.current.scrollIntoView({ 
+               behavior: "smooth", 
+               block: "nearest"
+            });
+        }
+	}
+	
+	render() {
+		return(
+			<div>
+				<div id="banner-container">
+					<div className="container">
+						<Zoom>
+							<p id="name"><b>Phil Yang</b></p>
+						</Zoom>
+						<p id="occupation"><i>Software & Mechanical Engineer</i></p>
+						<div id="banner-btn-container" className="row">
+							<button onClick={this.scrollToAbout} className="btn btn-default banner-btn">
+								About
+							</button>
+							<button onClick={this.scrollToProjects} className="btn btn-default banner-btn">
+								Projects
+							</button>
+						</div>
+					</div>
+				</div>
+				<div ref={this.aboutRef}>
+					<Zoom>
+						<AboutPage/>
+					</Zoom>
+				</div>
+				
+				<div ref={this.projectsRef}>
+					<ProjectPage/>
 				</div>
 			</div>
-			<img id="bottom-bg" src={photo2} alt="bottom background"/>
-		</div>
-	);
+		);
+	}
+	
 }
