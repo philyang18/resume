@@ -9,13 +9,14 @@ export default class Home extends React.Component {
 		super(props);
 		this.aboutRef = React.createRef();
 		this.projectsRef = React.createRef();
+		this.logo = require(`./images/logo.png`);
 	}
 
 	scrollToAbout = (event) => {
         if(this.aboutRef.current){
             this.aboutRef.current.scrollIntoView({ 
                behavior: "smooth", 
-               block: "nearest"
+               block: "start"
             });
         }
     }
@@ -24,7 +25,7 @@ export default class Home extends React.Component {
         if(this.projectsRef.current){
             this.projectsRef.current.scrollIntoView({ 
                behavior: "smooth", 
-               block: "nearest"
+               block: "start"
             });
         }
 	}
@@ -47,6 +48,24 @@ export default class Home extends React.Component {
 							</button>
 						</div>
 					</div>
+				</div>
+				<div id="nav-container">
+					<nav id="my-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+						<img id="logo" class="navbar-brand" src={this.logo} alt="logo"></img>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<ul class="navbar-nav">
+								<li class="nav-item">
+									<div class="nav-link" onClick={this.scrollToAbout}>About</div>
+								</li>
+								<li class="nav-item">
+									<div class="nav-link" onClick={this.scrollToProjects}>Projects</div>
+								</li>
+							</ul>
+						</div>
+					</nav>
 				</div>
 				<div ref={this.aboutRef}>
 					<Zoom>

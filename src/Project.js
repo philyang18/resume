@@ -27,7 +27,7 @@ export default class Project extends React.Component {
                 className="project-container" 
                 onClick={this.handleClick}
             >
-                <img src={this.state.image}/>
+                <img src={this.state.image} alt={this.state.title}/>
                 <p>{this.state.title}</p>
             </div>
         );

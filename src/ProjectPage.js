@@ -26,7 +26,6 @@ export default class ProjectPage extends React.Component {
   }
   showDetails = async (title, description, technologies, src, github) => {
     this.setState({title, description, technologies, src, github});
-    console.log(technologies);
   }
   hideDetails = () => {
     this.setState({title: "", description: "", technologies: [], src: "", github: ""});
@@ -87,12 +86,12 @@ export default class ProjectPage extends React.Component {
                       <h2 onClick={this.hideDetails}>{this.state.title} <i id="close-details-icon" className="icon-minus arrow-toggle"></i></h2> 
                       <p>{this.state.description}</p>
                       <div>
-                        <a href={this.state.src} target="_blank" className="btn btn-default details-btn">Explore</a>
-                        <a href={this.state.github} target="_blank" className="btn btn-default details-btn">Code</a>
+                        <a href={this.state.src} target="_blank" rel="noopener noreferrer" className="btn btn-default details-btn">Explore</a>
+                        <a href={this.state.github} target="_blank" rel="noopener noreferrer" className="btn btn-default details-btn">Code</a>
                       </div>
                       {this.state.technologies.map(technology => {
                         return (
-                          <a className="skill">{technology}</a>
+                          <div className="skill">{technology}</div>
                         );
                       })}
                       

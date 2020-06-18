@@ -33,13 +33,13 @@ export default class AboutPage extends React.Component {
 				<div id="#about-page" className="container">
 					<div className="row">
 						<div id="about-left-side" className={this.state.showCourses ? "top-100 col-lg-5 col-sm-12" : "col-lg-5 col-sm-12"}>
-							<img id="my-photo" src={this.state.photo}></img>
+							<img id="my-photo" src={this.state.photo} alt="portrait"></img>
 							<h2 id="about-name"><b>Phil Yang</b></h2>
 							<p id="my-school">University of Southern California 2021</p>
 							<div id="link-container" className="row">
-								<a href="https://www.linkedin.com/in/phil-yang-b9a80316b/" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">LinkedIn</a>
-								<a href="https://github.com/philyang18/" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">GitHub</a>
-								<a href={this.state.resume} download="resume.pdf" className="btn btn-default link-btn col-lg-3 col-sm-12">Resume</a>
+								<a href="https://www.linkedin.com/in/phil-yang-b9a80316b/" rel="noopener noreferrer" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">LinkedIn</a>
+								<a href="https://github.com/philyang18/" rel="noopener noreferrer" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">GitHub</a>
+								<a href={this.state.resume} download="resume.pdf" rel="noopener noreferrer" className="btn btn-default link-btn col-lg-3 col-sm-12">Resume</a>
 								<a href="mailto:philyang04@gmail.com" className="btn btn-default link-btn col-lg-3 col-sm-12">Email</a>
 							</div>
 							
@@ -53,24 +53,24 @@ export default class AboutPage extends React.Component {
 								<br/>
 								<h3>Skills</h3>
 								<div id="skills-list" >
-									<a className="skill">C++</a>
-									<a className="skill">Java</a>
-									<a className="skill">Swift</a>
-									<a className="skill">HTML</a>
-									<a className="skill">CSS</a>
-									<a className="skill">JavaScript</a>
-									<a className="skill">PHP</a>
-									<a className="skill">Swift</a>
-									<a className="skill">JavaFX</a>
-									<a className="skill">Bootstrap</a>
-									<a className="skill">React</a>
-									<a className="skill">Express</a>
-									<a className="skill">MySQL</a>
-									<a className="skill">Git</a>
-									<a className="skill">OOP</a>
-									<a className="skill">MVC</a>
-									<a className="skill">MATLAB</a>
-									<a className="skill">Siemens NX</a>
+									<div className="skill">C++</div>
+									<div className="skill">Java</div>
+									<div className="skill">Swift</div>
+									<div className="skill">HTML</div>
+									<div className="skill">CSS</div>
+									<div className="skill">JavaScript</div>
+									<div className="skill">PHP</div>
+									<div className="skill">Swift</div>
+									<div className="skill">JavaFX</div>
+									<div className="skill">Bootstrap</div>
+									<div className="skill">React</div>
+									<div className="skill">Express</div>
+									<div className="skill">MySQL</div>
+									<div className="skill">Git</div>
+									<div className="skill">OOP</div>
+									<div className="skill">MVC</div>
+									<div className="skill">MATLAB</div>
+									<div className="skill">Siemens NX</div>
 								</div>
 								
 								<br/><br/>
