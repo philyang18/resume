@@ -9,6 +9,7 @@ export default class ProjectPage extends React.Component {
     this.state = {
       title: "",
       description: "",
+      instructions: "",
       technologies: [],
       src: "",
       github: ""
@@ -24,11 +25,13 @@ export default class ProjectPage extends React.Component {
      
     }
   }
-  showDetails = async (title, description, technologies, src, github) => {
-    this.setState({title, description, technologies, src, github});
+
+  // get rid of async
+  showDetails = async (title, description, instructions, technologies, src, github) => {
+    this.setState({title, description, instructions, technologies, src, github});
   }
   hideDetails = () => {
-    this.setState({title: "", description: "", technologies: [], src: "", github: ""});
+    this.setState({title: "", description: "", instructions: "", technologies: [], src: "", github: ""});
   }
   render() {
     return (
@@ -36,7 +39,7 @@ export default class ProjectPage extends React.Component {
         <div className="container">
           <h1>Projects</h1>
           <div className="row">
-            
+{/*             
             <div className="project col-lg-3 col-md-6 col-sm-12">
               <Zoom>
                 <Project 
@@ -49,33 +52,35 @@ export default class ProjectPage extends React.Component {
                   onClick={this.showDetails}
                 />
               </Zoom>
-            </div>
+            </div> */}
             <div className="project col-lg-3 col-md-6 col-sm-12">
               <Zoom>
                 <Project 
                   title="NASA Images" 
                   imageSrc="./images/nasa.jpg" 
-                  description="This is a web application that displays images from NASA's photo of the day and Mars rover APIs. Users can view the last 7 photos of the day and search through all photos taken from the Curiosity Rover. There is also a 'like' feature similar to Instagram where users can double tap an image to save it, however the data is only temporarily saved on the client-side using Express so any changes to the favorites list will affect all users. Some optimizations and improvements that have yet to be implemented: a server-side database and login system so users can have a private and permanent favorites list."
-                  technologies={["HTML", "CSS", "React", "Bootstrap", "Express"]}
-                  src="https://google.com"
-                  github="https://github.com"
+                  description="Nasa Images is a MERN stack application that is deployed through an Ubuntu server on AWS. The app displays images from NASA's astronomy photo of the day and Mars rover APIs. Users can create an account to view the last 7 photos of the day and search through the library of images taken by the Curiosity Rover. Every user has their own 'favorites' list with CRUD capabilities which include a 'like' feature similar to Instagram where users can double tap an image to save it to their favorites list. Please note that the forgot password feature is not implemented yet."
+                  instructions="**Guest account available: [ email: guest123@gmail.com, password: Guest123 ]"
+                  technologies={["ReactJS", "CSS", "Bootstrap", "Express", "MongoDB", "NodeJS"]}
+                  src="http://ec2-54-157-138-19.compute-1.amazonaws.com"
+                  github="https://github.com/philyang18/Nasa-Images-v4"
                   onClick={this.showDetails}
                 />
               </Zoom>
             </div>
-            {/* <div className="project col-lg-3 col-md-6 col-sm-12">
+            <div className="project col-lg-3 col-md-6 col-sm-12">
               <Zoom>
                 <Project 
-                  title="" 
-                  imageSrc="." 
-                  description=""
-                  technologies={["", "", "", "", "",""]}
-                  src="https://google.com"
-                  github="https://github.com"
+                  title="All Sorts" 
+                  imageSrc="./images/allsorts.jpeg" 
+                  description="This is a website I created while learning some basic sorting algorithms. My original idea was to create an application that would slowly show the process of each method, however I decided to create a table that displays the duration of each sorting algorithm instead."
+                  instructions="** This application is not mobile-friendly yet."
+                  technologies={["ReactJS", "CSS", "Bootstrap"]}
+                  src="https://allsorts.surge.sh"
+                  github="https://github.com/philyang18/All-Sorts"
                   onClick={this.showDetails}
                 />
               </Zoom>
-            </div> */}
+            </div>
           </div>
           <div id="project-details" >
             {this.state.title.length !== 0 ? 
@@ -85,6 +90,7 @@ export default class ProjectPage extends React.Component {
                     <div>
                       <h2 onClick={this.hideDetails}>{this.state.title} <i id="close-details-icon" className="icon-minus arrow-toggle"></i></h2> 
                       <p>{this.state.description}</p>
+                      <p>{this.state.instructions}</p>
                       <div>
                         <a href={this.state.src} target="_blank" rel="noopener noreferrer" className="btn btn-default details-btn">Explore</a>
                         <a href={this.state.github} target="_blank" rel="noopener noreferrer" className="btn btn-default details-btn">Code</a>
@@ -107,81 +113,3 @@ export default class ProjectPage extends React.Component {
   }
 }
 
-
-// export default class Projects extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       web: [],
-//       prog: [],
-//       micro: [],
-//       loading: false
-//     };
-//   }
-//   componentDidMount = async () => {
-//     this.setState({ loading: true });
-//     const projects = await getProjects();
-//     this.setState({ web: projects.web_development, prog: projects.programming, micro: projects.microcontrollers });
-//     this.setState({ loading: false });
-//   }
-//   render() {
-//     return (
-//       <div>
-//         {this.state.loading ? <Loading /> :
-//           <div id="projects-page" className="container" >
-//             <br/><br/>
-//             <h1>Web Projects</h1>
-//             <div className="row rowOfUnits">
-//               {this.state.web.map(project => {
-//                 return (
-//                   <WebLink title={project.title} imageSrc={project.thumbnail} url={`/projects/web_development/${project.id}`}/>
-//                 );
-//               })}
-//             </div>
-//             <br/><br/>
-//             <h1>Programming Projects</h1>
-//             <div className="row rowOfUnits">
-//               {this.state.prog.map(project => {
-//                 return (
-//                   <WebLink title={project.title} imageSrc={project.thumbnail} url={`/projects/programming/${project.id}` }/>
-//                 );
-//               })}
-//             </div>
-//             <br/><br/>
-//             <h1>Microcontroller Projects</h1>
-//             <div className="row rowOfUnits">
-//               {this.state.micro.map(project => {
-//                 return (
-//                   <WebLink title={project.title} imageSrc={project.thumbnail} url={`/projects/microcontrollers/${project.id}` }/>
-//                 );
-//               })}
-//             </div>
-//           </div>
-//         }
-//       </div>
-//     );
-//   }
-// }
-// export default function Projects(props) {
-//   //try onHover and create a function to fill in link-desc
-// 	return (
-//     <div>
-// 	    <div id="web-body" className="container" >
-//         <br/><br/>
-//         <h1>Web Projects</h1>
-//         <div className="row rowOfUnits">
-//           <WebLink title={"Movie Database"} imageSrc={"./images/movies.png"} url={"http://303.itpwebdev.com/~yangphil/assignment5/movie.html"} isWeb={false}/>
-//           <WebLink title={"Memeversity"} imageSrc={"./images/meme.png"} url={"http://303.itpwebdev.com/~yangphil/final_project/login.php"} isWeb={false}/>
-//         </div>
-//         <br/><br/>
-//         <h1>C++ Projects</h1>
-//         <div className="row rowOfUnits">
-//           <WebLink title={"Sieve of Erastosthenes"} imageSrc={"./images/github.png"} url={"/projects/sieveoferastothenes"} isWeb={false}/>
-//           <WebLink title={"Sieve of Erastosthenes"} imageSrc={"./images/github.png"} url={"/projects/sieveoferastothenes"} isWeb={false}/>
-//           <WebLink title={"Sieve of Erastosthenes"} imageSrc={"./images/github.png"} url={"/projects/sieveoferastothenes"} isWeb={false}/>
-//           <WebLink title={"Sieve of Erastosthenes"} imageSrc={"./images/github.png"} url={"/projects/sieveoferastothenes"} isWeb={false}/>
-//         </div>
-//       </div>
-//     </div>
-// 	);
-// }

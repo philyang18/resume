@@ -7,6 +7,7 @@ export default class Project extends React.Component {
             title: props.title, 
             image: require(`${props.imageSrc}`),
             description: props.description,
+            instructions: props.instructions,
             technologies: props.technologies,
             src: props.src,
             github: props.github
@@ -16,6 +17,7 @@ export default class Project extends React.Component {
         this.props.onClick(
             this.state.title, 
             this.state.description,
+            this.state.instructions,
             this.state.technologies,
             this.state.src,
             this.state.github

@@ -1,4 +1,5 @@
 import React from 'react';
+import { __esModule } from 'react-reveal/globals';
 
 export default class AboutPage extends React.Component {
 
@@ -6,30 +7,34 @@ export default class AboutPage extends React.Component {
 		super(props);
 		this.state = {
 			photo: require(`./images/portrait2.jpeg`),
-			resume: require('./images/portrait.jpeg'),
+			resume: require('./images/Resume.pdf'),
 			showJourney: false,
 			showCourses: false,
 		};
 		this.coursesRef = React.createRef();
+		this.topRef = React.createRef();
 	}
 	componentDidUpdate = () => {
-		if(this.coursesRef.current){
+		if(this.coursesRef.current && this.state.showCourses){
 			this.coursesRef.current.scrollIntoView({ 
 			   behavior: "smooth",
 			   block: "nearest"
 			});
 		}
+		else if(this.topRef.current) {
+			this.topRef.current.scrollIntoView({ 
+				behavior: "smooth",
+				block: "nearest"
+			 });
+		}
 	}
 	toggleCourses = () => {
-		if(this.state.showCourses) {
-			this.setState({  showCourses: false });
-		} else {
-			this.setState({  showCourses: true });
-		}
+		
+		this.setState({  showCourses: !this.state.showCourses });
 	}
 	render() {
 		return(
-			<div id="about-container">
+			<div id="about-container" ref={this.topRef}>
 				<div id="#about-page" className="container">
 					<div className="row">
 						<div id="about-left-side" className={this.state.showCourses ? "top-100 col-lg-5 col-sm-12" : "col-lg-5 col-sm-12"}>
@@ -37,9 +42,9 @@ export default class AboutPage extends React.Component {
 							<h2 id="about-name"><b>Phil Yang</b></h2>
 							<p id="my-school">University of Southern California 2021</p>
 							<div id="link-container" className="row">
-								<a href="https://www.linkedin.com/in/phil-yang-b9a80316b/" rel="noopener noreferrer" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">LinkedIn</a>
+								<a href="https://www.linkedin.com/in/philyang18/" rel="noopener noreferrer" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">LinkedIn</a>
 								<a href="https://github.com/philyang18/" rel="noopener noreferrer" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">GitHub</a>
-								<a href={this.state.resume} download="resume.pdf" rel="noopener noreferrer" className="btn btn-default link-btn col-lg-3 col-sm-12">Resume</a>
+								<a href={this.state.resume} download="Resume.pdf" rel="noopener noreferrer" className="btn btn-default link-btn col-lg-3 col-sm-12">Resume</a>
 								<a href="mailto:philyang04@gmail.com" className="btn btn-default link-btn col-lg-3 col-sm-12">Email</a>
 							</div>
 							
@@ -55,16 +60,18 @@ export default class AboutPage extends React.Component {
 								<div id="skills-list" >
 									<div className="skill">C++</div>
 									<div className="skill">Java</div>
-									<div className="skill">Swift</div>
+									{/* <div className="skill">Swift</div> */}
 									<div className="skill">HTML</div>
 									<div className="skill">CSS</div>
 									<div className="skill">JavaScript</div>
 									<div className="skill">PHP</div>
-									<div className="skill">Swift</div>
-									<div className="skill">JavaFX</div>
 									<div className="skill">Bootstrap</div>
 									<div className="skill">React</div>
+									<div className="skill">Laravel</div>
+									<div className="skill">NodeJS</div>
 									<div className="skill">Express</div>
+									<div className="skill">MongoDB</div>
+									<div className="skill">AWS</div>
 									<div className="skill">MySQL</div>
 									<div className="skill">Git</div>
 									<div className="skill">OOP</div>
@@ -76,7 +83,7 @@ export default class AboutPage extends React.Component {
 								<br/><br/>
 								
 								
-								<div id="about-detail"ref={this.coursesRef}>
+								<div id="about-detail" ref={this.coursesRef}>
 									<h3 id="courses-btn" onClick={this.toggleCourses}>Completed Courses <i className={this.state.showCourses ? "icon-caret-down arrow-toggle" : "icon-caret-right arrow-toggle"} ></i></h3>
 									<br/>
 									{ this.state.showCourses ? 
@@ -99,9 +106,11 @@ export default class AboutPage extends React.Component {
 														<li>iOS App Development in Swift</li>
 														<li>Advanced Front End Development</li>
 														<li>Physical Programming with Microcontrollers</li>
-														<li>Professional C++</li>
-														<li>Object-Oriented Programming*</li>
-														<li>Analysis of Algorithms**</li>
+														<br/>
+														<li className="font-italic">* Object-Oriented Programming</li>
+														<li className="font-italic">* Professional C++</li>
+														<li className="font-italic">** Analysis of Algorithms</li>
+														<li className="font-italic">** Introduction to Data Analytics</li>
 													</ul>
 												</div>
 											</div>
@@ -124,9 +133,9 @@ export default class AboutPage extends React.Component {
 														<li>Heat Transfer</li>
 														<li>Mechoptronics</li>
 														<li>Senior Design</li>
-														<li>Turbine Design and Analysis**</li>
-														<li>CAD of Mechanical Systems**</li>
-														<li>Computational Solutions to Engineering Problems**</li>
+														<br/>
+														<li className="font-italic">** Turbine Design and Analysis</li>
+														<li className="font-italic">** Computational Solutions to Engineering Problems</li>
 													</ul>
 												</div>
 											</div>	
