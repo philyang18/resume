@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Tera&family=Montserrat:wght@300&family=Muli:wght@700&family=Roboto+Condensed:ital@1&display=swap');
 
+
+
 /* Error */
 #error {
   width: 100%;
@@ -48,6 +50,7 @@
     display: none;
   }
 }
+
 /* Home */
 #banner-container {
   width: 100%;
@@ -317,6 +320,7 @@
 
 #close-details-icon {
   font-size: 25px;
+  
 }
 #project-details h2 {
   cursor: pointer;
@@ -329,7 +333,9 @@
   color: white;
   margin: 0 5px 10px 0;
 }
-
+.hide-btn {
+  display: none;
+}
 .details-btn:hover {
   color: white;
   background: rgb(55, 69, 133);

@@ -6,8 +6,8 @@ export default class AboutPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			photo: require(`./images/portrait2.jpeg`),
-			resume: require('./images/Resume.pdf'),
+			photo: require(`./images/portrait3.JPG`),
+			resume: require('./images/Resume_Phil_Yang.pdf'),
 			showJourney: false,
 			showCourses: false,
 		};
@@ -44,7 +44,7 @@ export default class AboutPage extends React.Component {
 							<div id="link-container" className="row">
 								<a href="https://www.linkedin.com/in/philyang18/" rel="noopener noreferrer" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">LinkedIn</a>
 								<a href="https://github.com/philyang18/" rel="noopener noreferrer" target="_blank" className="btn btn-default link-btn col-lg-3 col-sm-12">GitHub</a>
-								<a href={this.state.resume} download="Resume.pdf" rel="noopener noreferrer" className="btn btn-default link-btn col-lg-3 col-sm-12">Resume</a>
+								<a href={this.state.resume} download="Resume_Phil_Yang.pdf" rel="noopener noreferrer" className="btn btn-default link-btn col-lg-3 col-sm-12">Resume</a>
 								<a href="mailto:philyang04@gmail.com" className="btn btn-default link-btn col-lg-3 col-sm-12">Email</a>
 							</div>
 							
@@ -60,7 +60,7 @@ export default class AboutPage extends React.Component {
 								<div id="skills-list" >
 									<div className="skill">C++</div>
 									<div className="skill">Java</div>
-									{/* <div className="skill">Swift</div> */}
+									<div className="skill">Swift</div>
 									<div className="skill">HTML</div>
 									<div className="skill">CSS</div>
 									<div className="skill">JavaScript</div>
@@ -94,23 +94,24 @@ export default class AboutPage extends React.Component {
 											</div>
 											<div className="col-lg-6">
 												<div className="col-lg-12">
-													Programming/ Comp. Science:
+													Computer Science/Programming:
 												</div>
 												<div className="col-lg-12">
 													<ul>
 														<li>Intro to C++</li>
-														<li>Data Structures in C++</li>
+														<li>Data Structures</li>
 														<li>Introduction to Programming Systems Design</li>
-														<li>Programming Graphical User Interfaces in Java</li>
+														<li>Analysis of Algorithms</li>
 														<li>Full-Stack Web Development</li>
-														<li>iOS App Development in Swift</li>
 														<li>Advanced Front End Development</li>
+														<li>iOS App Development in Swift</li>
 														<li>Physical Programming with Microcontrollers</li>
-														<br/>
+														<li>Programming Graphical User</li>
 														<li className="font-italic">* Object-Oriented Programming</li>
 														<li className="font-italic">* Professional C++</li>
-														<li className="font-italic">** Analysis of Algorithms</li>
-														<li className="font-italic">** Introduction to Data Analytics</li>
+														<br/>
+														<li className="font-italic">** Advanced iOS App Development</li>
+														
 													</ul>
 												</div>
 											</div>
@@ -132,10 +133,13 @@ export default class AboutPage extends React.Component {
 														<li>Fluid Dynamics</li>
 														<li>Heat Transfer</li>
 														<li>Mechoptronics</li>
+														<li>Turbine Design and Analysis</li>
+														<li>Computational Solutions to Engineering Problems</li>
 														<li>Senior Design</li>
 														<br/>
-														<li className="font-italic">** Turbine Design and Analysis</li>
-														<li className="font-italic">** Computational Solutions to Engineering Problems</li>
+														<li className="font-italic">** Computer Aided Design of Mechanical Systems</li>
+														<li className="font-italic">** Materials Behavior and Processing</li>
+														<li className="font-italic">** Mathematics of Physics and Engineering II</li>
 													</ul>
 												</div>
 											</div>	
